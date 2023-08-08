@@ -1,8 +1,10 @@
+import csv
 import datetime as dt
 from pathlib import Path
 
+from .settings import DATETIME_FORMAT
+
 BASE_DIR = Path(__file__).parent
-DATETIME_FORMAT = '%Y-%m-%d_%H-%M-%S'
 
 
 class PepParsePipeline:
@@ -25,8 +27,9 @@ class PepParsePipeline:
         results_dir = BASE_DIR / 'results'
         results_dir.mkdir(exist_ok=True)
         file_path = results_dir / file_name
-        with open(file_path, mode='w', encoding='utf-8') as f:
-            f.write('Статус,Количество\n')
+        with open(file_path, 'w', newline='', encoding='utf-8') as f:
+            writer = csv.writer(f)
+            writer.writerow(['Статус', 'Количество'])
             for status, count in self.data.items():
-                f.write(f'{status},{count}\n')
-            f.write(f'Total,{self.total}\n')
+                writer.writerow([status, count])
+            writer.writerow(['Total', self.total])

@@ -51,4 +51,4 @@ scrapy crawl pep
 С результатами парсинга можно ознакомиться в папке results/
 
 ## Автор
-Жаринов Алексей
+[Жаринов Алексей](https://github.com/alex-zharinov)
