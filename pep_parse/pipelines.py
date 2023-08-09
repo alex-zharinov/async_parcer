@@ -4,7 +4,7 @@ from pathlib import Path
 
 from .settings import DATETIME_FORMAT
 
-BASE_DIR = Path(__file__).parent
+BASE_DIR = Path(__file__).parent.parent
 
 
 class PepParsePipeline:
@@ -28,8 +28,11 @@ class PepParsePipeline:
         results_dir.mkdir(exist_ok=True)
         file_path = results_dir / file_name
         with open(file_path, 'w', newline='', encoding='utf-8') as f:
-            writer = csv.writer(f)
-            writer.writerow(['Статус', 'Количество'])
-            for status, count in self.data.items():
-                writer.writerow([status, count])
-            writer.writerow(['Total', self.total])
+            writer = csv.writer(
+                f, dialect=csv.unix_dialect, quoting=csv.QUOTE_NONE
+            )
+            writer.writerows([
+                ('Статус', 'Количество'),
+                *self.data.items(),
+                ('Total', self.total)
+            ])
