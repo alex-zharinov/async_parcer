@@ -1,6 +1,6 @@
 # Асинхронный парсер на Scrapy
 
-[![async-parcer workflow](https://github.com/alex-zharinov/async_parcer/actions/workflows/main.yml/badge.svg)](https://github.com/alex-zharinov/async_parcer/actions/workflows/main.yml)
+[![async-parser workflow](https://github.com/alex-zharinov/async_parser/actions/workflows/main.yml/badge.svg)](https://github.com/alex-zharinov/async_parser/actions/workflows/main.yml)
 
 ## Парсинг документов PEP
 > Парсер собирает данные обо всех PEP документах, сравнивает статусы и записывает их в два файла,
