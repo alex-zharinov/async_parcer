@@ -1,4 +1,4 @@
-name: async-parcer workflow
+name: async-parser workflow
 
 on: [push]
 
